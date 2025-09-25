@@ -6,7 +6,17 @@
     "useIgnoreFile": false
   },
   "files": {
-    "ignoreUnknown": false
+    "ignoreUnknown": false,
+    "includes": [
+      "src/**/*",
+      "*.ts",
+      "*.js",
+      "*.json",
+      "!bun.lockb",
+      "!node_modules",
+      "!dist",
+      "!build"
+    ]
   },
   "formatter": {
     "enabled": true,
