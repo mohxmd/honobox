@@ -1,9 +1,21 @@
-import { Hono } from "hono";
+import { serve } from "@hono/node-server";
+import { logger } from "@/lib/utils/logger";
 
-const app = new Hono();
+import app from "./app";
+import env from "./env";
 
-app.get("/", (c) => {
-  return c.text("Hello Hono!");
-});
+const isBun = typeof Bun !== "undefined";
 
-export default app;
+if (isBun) {
+  logger.info(`Running in Bun on http://localhost:${env.PORT}`);
+  Bun.serve({
+    port: env.PORT,
+    fetch: app.fetch,
+  });
+} else {
+  logger.info(`Running in Node on http://localhost:${env.PORT}`);
+  serve({
+    port: env.PORT,
+    fetch: app.fetch,
+  });
+}

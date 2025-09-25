@@ -1,8 +1,9 @@
 import { z } from "zod";
+import { logger } from "@/lib/utils/logger";
 
 const EnvSchema = z.object({
-  PORT: z.string().optional(),
-  NODE_ENV: z.enum(["development", "production"]),
+  PORT: z.number().optional().default(8080),
+  NODE_ENV: z.enum(["development", "production", "test"]),
   DB_FILE_NAME: z.string(),
   DEBUG: z.string().default("1"),
 });
@@ -10,8 +11,10 @@ const EnvSchema = z.object({
 const processEnv = EnvSchema.safeParse(process.env);
 
 if (!processEnv.success) {
-  console.error("❌ Invalid environment variables:");
-  console.error(JSON.stringify(z.flattenError(processEnv.error).fieldErrors, null, 2));
+  logger.error("❌ Invalid environment variables:");
+  logger.error(
+    JSON.stringify(z.flattenError(processEnv.error).fieldErrors, null, 2)
+  );
   process.exit(1);
 }
 
