@@ -5,13 +5,13 @@ import { prettyJSON } from "hono/pretty-json";
 
 import {
   cacheMiddleware,
+  emojiFavicon,
   logger,
   notFound,
   onError,
   rateLimiter,
-  serveEmojiFavicon,
+  tsx,
 } from "@/middlewares";
-import { tsx } from "@/middlewares/tsx";
 import type { AppLogger } from "./utils/logger";
 
 export type AppEnv = Env & {
@@ -33,7 +33,7 @@ export default function createApp() {
   app
     .use(poweredBy())
     .use(prettyJSON())
-    .use(serveEmojiFavicon("🧰"))
+    .use(emojiFavicon("🧰"))
     .use(logger())
     .use(cacheMiddleware())
     .use(

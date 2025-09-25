@@ -1,6 +1,6 @@
 import type { MiddlewareHandler } from "hono";
 
-export const serveEmojiFavicon = (emoji: string): MiddlewareHandler => {
+export const emojiFavicon = (emoji: string): MiddlewareHandler => {
   return async (c, next) => {
     if (c.req.path === "/favicon.ico") {
       c.header("Content-Type", "image/svg+xml");

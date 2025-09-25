@@ -4,7 +4,11 @@
     "source.organizeImports.biome": "explicit",
     "source.fixAll.biome": "explicit"
   },
-  "cSpell.words": ["honobox", "libsql"],
+  "cSpell.words": [
+    "honobox",
+    "libsql",
+    "linkedom"
+  ],
   "[jsonc]": {
     "editor.defaultFormatter": "biomejs.biome"
   }
