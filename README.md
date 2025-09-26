@@ -74,8 +74,8 @@ src/
 ### Pages (SSR)
 
 ```ts
-// src/routes/pages/hello.route.ts
-const router = createRouter().get("/hello", (c) =>
+// src/routes/pages/index.pages.tsx
+const router = createRouter().get("/", (c) =>
   c.render(<h1>Hello Hono SSR!</h1>)
 );
 export default router;
@@ -84,7 +84,7 @@ export default router;
 ### APIs
 
 ```ts
-// src/routes/api/hello.route.ts
+// src/routes/api/hello.routes.ts
 const router = createRouter().get("/", (c) => {
   c.var.logger.info("Hello");
   return c.json({ message: "Hello Hono!" }, 200);
@@ -96,8 +96,8 @@ export default router;
 
 ```ts
 // src/app.ts
-import hello from "@/routes/api/hello.route.ts";
-import helloPage from "@/routes/pages/hello.route.ts";
+import hello from "@/routes/api/hello.routes.ts";
+import home from "@/routes/pages/index.pages.ts";
 
 const routes = [hello, helloPage] as const;
 ```

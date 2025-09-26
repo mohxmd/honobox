@@ -63,7 +63,7 @@ export default function createApp() {
       })
     );
 
-  app.use("/app/*", tsx());
+  app.use("*", tsx());
   app.notFound(notFound);
   app.onError(onError);
 

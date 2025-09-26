@@ -6,7 +6,7 @@ export function TaskForm() {
         <p>Simple task management</p>
       </hgroup>
 
-      <form method="post" action="/app/tasks">
+      <form method="post" action="/tasks">
         <fieldset>
           <legend>Add New Task</legend>
           <input

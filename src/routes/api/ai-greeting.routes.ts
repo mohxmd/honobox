@@ -4,7 +4,7 @@ import { getCountryFromIp } from "@/lib/utils/get-country";
 import { getClientIp } from "@/lib/utils/get-request-ip";
 
 export default createRouter()
-  .basePath("/ai")
+  .basePath("/api/ai")
   .get("/geo/hello", async (c) => {
     const ip = getClientIp(c);
     const country = getCountryFromIp(ip, c.req.raw.headers);

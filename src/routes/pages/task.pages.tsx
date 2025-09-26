@@ -12,7 +12,7 @@ import { createRouter } from "@/lib/init-app";
 import { tryCatch } from "@/lib/utils/try-catch";
 
 const router = createRouter()
-  .get("/app/tasks", async (c) => {
+  .get("/tasks", async (c) => {
     const { data, error } = await tryCatch(getTasks());
 
     if (error) {
@@ -29,7 +29,7 @@ const router = createRouter()
       </>
     );
   })
-  .post("/app/tasks", async (c) => {
+  .post("/tasks", async (c) => {
     const body = await c.req.parseBody<{ name?: string }>();
     const name = body.name?.toString();
 
@@ -41,9 +41,9 @@ const router = createRouter()
     if (error)
       throw new HTTPException(500, { message: "Failed to create task" });
 
-    return c.redirect("/app/tasks");
+    return c.redirect("/tasks");
   })
-  .post("/app/tasks/:id/edit", async (c) => {
+  .post("/tasks/:id/edit", async (c) => {
     const id = c.req.param("id");
     const body = await c.req.parseBody<{ name?: string }>();
     const name = body.name?.toString().trim();
@@ -57,19 +57,19 @@ const router = createRouter()
       throw new HTTPException(500, { message: "Failed to update task" });
     }
 
-    return c.redirect("/app/tasks");
+    return c.redirect("/tasks");
   })
-  .post("/app/tasks/:id/toggle", async (c) => {
+  .post("/tasks/:id/toggle", async (c) => {
     const id = c.req.param("id");
     const task = await getTaskById(id);
     if (!task) return c.notFound();
     await toggleTaskDone(id, !task.done);
-    return c.redirect("/app/tasks");
+    return c.redirect("/tasks");
   })
-  .post("/app/tasks/:id/delete", async (c) => {
+  .post("/tasks/:id/delete", async (c) => {
     const id = c.req.param("id");
     await deleteTask(id);
-    return c.redirect("/app/tasks");
+    return c.redirect("/tasks");
   });
 
 export default router;

@@ -15,7 +15,7 @@ export function TaskList({ tasks }: { tasks: (typeof task.$inferSelect)[] }) {
               <div style="display: flex; align-items: center; gap: 1rem;">
                 <form
                   method="post"
-                  action={`/app/tasks/${t.id}/toggle`}
+                  action={`/tasks/${t.id}/toggle`}
                   style="margin: 0;"
                 >
                   <input
@@ -60,7 +60,7 @@ export function TaskList({ tasks }: { tasks: (typeof task.$inferSelect)[] }) {
 
                   <form
                     method="post"
-                    action={`/app/tasks/${t.id}/delete`}
+                    action={`/tasks/${t.id}/delete`}
                     style="margin: 0;"
                   >
                     <button
@@ -88,7 +88,7 @@ export function TaskList({ tasks }: { tasks: (typeof task.$inferSelect)[] }) {
 
                   <form
                     method="post"
-                    action={`/app/tasks/${t.id}/edit`}
+                    action={`/tasks/${t.id}/edit`}
                     style="display: flex; flex-direction: column; gap: 1rem;"
                   >
                     <label>

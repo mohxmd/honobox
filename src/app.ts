@@ -1,13 +1,13 @@
 import createApp from "@/lib/init-app";
 
-// routes
-import aiGreeting from "@/routes/api/ai-greeting.route";
-import index from "@/routes/api/index.route";
-import task from "@/routes/pages/task/task.routes";
+import aiGreeting from "@/routes/api/ai-greeting.routes";
+import apiHello from "@/routes/api/hello.routes";
+import home from "@/routes/pages/index.pages";
+import task from "@/routes/pages/task.pages";
 
 const app = createApp();
 
-const routes = [index, aiGreeting, task] as const;
+const routes = [home, task, apiHello, aiGreeting] as const;
 
 routes.forEach((route) => {
   app.route("/", route);
