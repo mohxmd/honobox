@@ -4,8 +4,9 @@ import { logger } from "@/lib/utils/logger";
 const EnvSchema = z.object({
   PORT: z.number().optional().default(8080),
   NODE_ENV: z.enum(["development", "production", "test"]),
-  DB_FILE_NAME: z.string(),
-  DEBUG: z.string().default("1"),
+
+  TURSO_DATABASE_URL: z.string(),
+  TURSO_AUTH_TOKEN: z.string(),
 });
 
 const processEnv = EnvSchema.safeParse(process.env);

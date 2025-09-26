@@ -8,7 +8,7 @@
     "typegen:cfw": "wrangler types --env-interface CloudflareBindings",
     "🗄": "──────────────── Database ────────────────",
     "db:generate": "drizzle-kit generate",
-    "db:migrate": "bun run src/db/migrate.ts",
+    "db:migrate": "drizzle-kit migrate",
     "db:update": "drizzle-kit generate && drizzle-kit migrate",
     "db:seed": "bun ./src/drizzle/seed.ts",
     "db:push": "drizzle-kit push",
@@ -27,7 +27,6 @@
     "drizzle-orm": "^0.44.5",
     "drizzle-zod": "^0.8.3",
     "hono": "^4.9.8",
-    "linkedom": "^0.18.12",
     "zod": "^4.1.11"
   },
   "devDependencies": {
