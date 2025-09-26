@@ -15,7 +15,12 @@ import {
 import type { AppLogger } from "./utils/logger";
 
 export type AppEnv = Env & {
-  Bindings: { APP_NAME: "honobox" };
+  Bindings: {
+    APP_NAME: "honobox";
+    TURSO_DATABASE_URL: string;
+    TURSO_AUTH_TOKEN: string;
+    GOOGLE_GENERATIVE_AI_API_KEY: string;
+  };
   Variables: {
     logger: AppLogger;
   };
