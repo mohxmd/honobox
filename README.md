@@ -9,7 +9,7 @@ Runs everywhere: **Bun • Node • Cloudflare • Vercel** ✨
 
 - ⚡ **Fast**: Hono framework + Bun/Node/CFW runtimes
 - 🗄️ **SQLite with Drizzle ORM** (Turso dialect)
-- 📝 **SSR Todo example** built with [PicoCSS](https://picocss.com)
+- 📝 **SSR Todo example** using [PicoCSS](https://picocss.com) (classless CSS)
 - 🧩 **Middlewares**: logger, not-found, on-error, rate-limit, cache, emoji favicon, JSX
 - 🧹 **Biome** for linting, formatting, checks
 - 🔧 **Deploy-ready**: Vercel (zero-config) & Cloudflare (1 command)
